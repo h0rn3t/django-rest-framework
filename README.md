@@ -1,6 +1,6 @@
 # Django REST framework 3.12.4 (version without OrderedDict's)
 
-Full documentation for the project is available at [https://www.django-rest-framework.org/][docs].
+Full documentation for the project is available at https://www.django-rest-framework.org/.
 
 
 # Requirements
