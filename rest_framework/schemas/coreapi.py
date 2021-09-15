@@ -264,7 +264,7 @@ def field_to_schema(field):
         )
     elif isinstance(field, serializers.Serializer):
         return coreschema.Object(
-            properties=OrderedDict([
+            properties=dict([
                 (key, field_to_schema(value))
                 for key, value
                 in field.fields.items()
@@ -545,7 +545,7 @@ class AutoSchema(ViewInspector):
         if not update_with:
             return fields
 
-        by_name = OrderedDict((f.name, f) for f in fields)
+        by_name = dict((f.name, f) for f in fields)
         for f in update_with:
             by_name[f.name] = f
         fields = list(by_name.values())
