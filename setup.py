@@ -82,8 +82,8 @@ setup(
     author_email='tom@tomchristie.com',  # SEE NOTE BELOW (*)
     packages=find_packages(exclude=['tests*']),
     include_package_data=True,
-    install_requires=["django>=2.2"],
-    python_requires=">=3.5",
+    install_requires=["django>=3.0"],
+    python_requires=">=3.6",
     zip_safe=False,
     classifiers=[
         'Development Status :: 5 - Production/Stable',
