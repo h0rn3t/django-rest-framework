@@ -1,4 +1,3 @@
-from collections import OrderedDict
 from functools import wraps
 
 import pytest
@@ -261,7 +260,7 @@ class GetExtraActionUrlMapTests(TestCase):
         response = self.client.get('/api/actions/')
         view = response.view
 
-        expected = OrderedDict([
+        expected = dict([
             ('Custom list action', 'http://testserver/api/actions/custom_list_action/'),
             ('List action', 'http://testserver/api/actions/list_action/'),
             ('Wrapped list action', 'http://testserver/api/actions/wrapped_list_action/'),
@@ -273,7 +272,7 @@ class GetExtraActionUrlMapTests(TestCase):
         response = self.client.get('/api/actions/1/')
         view = response.view
 
-        expected = OrderedDict([
+        expected = dict([
             ('Custom detail action', 'http://testserver/api/actions/1/custom_detail_action/'),
             ('Detail action', 'http://testserver/api/actions/1/detail_action/'),
             ('Wrapped detail action', 'http://testserver/api/actions/1/wrapped_detail_action/'),
@@ -283,14 +282,14 @@ class GetExtraActionUrlMapTests(TestCase):
         self.assertEqual(view.get_extra_action_url_map(), expected)
 
     def test_uninitialized_view(self):
-        self.assertEqual(ActionViewSet().get_extra_action_url_map(), OrderedDict())
+        self.assertEqual(ActionViewSet().get_extra_action_url_map(), dict())
 
     def test_action_names(self):
         # Action 'name' and 'suffix' kwargs should be respected
         response = self.client.get('/api/names/1/')
         view = response.view
 
-        expected = OrderedDict([
+        expected = dict([
             ('Custom Name', 'http://testserver/api/names/1/named_action/'),
             ('Action Names Custom Suffix', 'http://testserver/api/names/1/suffixed_action/'),
             ('Unnamed action', 'http://testserver/api/names/1/unnamed_action/'),
