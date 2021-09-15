@@ -1,5 +1,5 @@
 import warnings
-from collections import Counter, OrderedDict
+from collections import Counter
 from urllib import parse
 
 from django.db import models
@@ -54,7 +54,7 @@ to customise schema structure.
 """
 
 
-class LinkNode(OrderedDict):
+class LinkNode(dict):
     def __init__(self):
         self.links = []
         self.methods_counter = Counter()
