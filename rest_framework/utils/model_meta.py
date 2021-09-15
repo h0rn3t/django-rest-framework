@@ -57,7 +57,7 @@ def _get_pk(opts):
     return pk
 
 
-def _get_fields(opts):
+def _get_fields(opts) -> dict:
     fields = {}
     for field in [field for field in opts.fields if field.serialize and not field.remote_field]:
         fields[field.name] = field
@@ -69,9 +69,9 @@ def _get_to_field(field):
     return getattr(field, 'to_fields', None) and field.to_fields[0]
 
 
-def _get_forward_relationships(opts):
+def _get_forward_relationships(opts) -> dict:
     """
-    Returns an `OrderedDict` of field names to `RelationInfo`.
+    Returns an `dict` of field names to `RelationInfo`.
     """
     forward_relations = {}
     for field in [field for field in opts.fields if field.serialize and field.remote_field]:
@@ -101,9 +101,9 @@ def _get_forward_relationships(opts):
     return forward_relations
 
 
-def _get_reverse_relationships(opts):
+def _get_reverse_relationships(opts) -> dict:
     """
-    Returns an `OrderedDict` of field names to `RelationInfo`.
+    Returns an `dict` of field names to `RelationInfo`.
     """
     reverse_relations = {}
     all_related_objects = [r for r in opts.related_objects if not r.field.many_to_many]
