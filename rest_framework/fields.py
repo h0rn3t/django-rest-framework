@@ -1235,8 +1235,8 @@ class DateTimeField(Field):
 
         if output_format.lower() == ISO_8601:
             value = value.isoformat()
-            if value.endswith('+00:00'):
-                value = value[:-6] + 'Z'
+#             if value.endswith('+00:00'):
+#                 value = value[:-6] + 'Z'
             return value
         return value.strftime(output_format)
 
