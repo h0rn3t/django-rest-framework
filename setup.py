@@ -82,7 +82,7 @@ setup(
     author_email='tom@tomchristie.com',  # SEE NOTE BELOW (*)
     packages=find_packages(exclude=['tests*']),
     include_package_data=True,
-    install_requires=["django>=3.0", "pytz>=2021.3"],
+    install_requires=["django>=3.0", "pytz>=2021.1"],
     python_requires=">=3.6",
     zip_safe=False,
     classifiers=[
