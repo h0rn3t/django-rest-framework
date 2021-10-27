@@ -1355,7 +1355,7 @@ class TestDateTimeField(FieldValues):
     valid_inputs = {
         '2001-01-01 13:00': datetime.datetime(2001, 1, 1, 13, 00, tzinfo=utc),
         '2001-01-01T13:00': datetime.datetime(2001, 1, 1, 13, 00, tzinfo=utc),
-        # '2001-01-01T13:00Z': datetime.datetime(2001, 1, 1, 13, 00, tzinfo=utc),
+        '2001-01-01T13:00+00:00': datetime.datetime(2001, 1, 1, 13, 00, tzinfo=utc),
         datetime.datetime(2001, 1, 1, 13, 00): datetime.datetime(2001, 1, 1, 13, 00, tzinfo=utc),
         datetime.datetime(2001, 1, 1, 13, 00, tzinfo=utc): datetime.datetime(2001, 1, 1, 13, 00, tzinfo=utc),
     }
@@ -1367,7 +1367,7 @@ class TestDateTimeField(FieldValues):
         '9999-12-31T21:59:59.99990-03:00': ['Datetime value out of range.'],
     }
     outputs = {
-        # datetime.datetime(2001, 1, 1, 13, 00): '2001-01-01T13:00:00Z',
+        datetime.datetime(2001, 1, 1, 13, 00): '2001-01-01T13:00:00+00:00',
         datetime.datetime(2001, 1, 1, 13, 00, tzinfo=utc): '2001-01-01T13:00:00+00:00',
         '2001-01-01T00:00:00': '2001-01-01T00:00:00',
         str('2016-01-10T00:00:00'): '2016-01-10T00:00:00',
