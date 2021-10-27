@@ -83,7 +83,7 @@ setup(
     packages=find_packages(exclude=['tests*']),
     include_package_data=True,
     install_requires=["django>=3.0", "pytz>=2021.1"],
-    python_requires=">=3.7",
+    python_requires=">=3.6",
     zip_safe=False,
     classifiers=[
         'Development Status :: 5 - Production/Stable',
@@ -97,6 +97,7 @@ setup(
         'Operating System :: OS Independent',
         'Programming Language :: Python',
         'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
